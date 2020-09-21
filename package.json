@@ -9,7 +9,7 @@
   },
   "lint-staged": {
     "*.{svelte,js}": "npx eslint --fix",
-    "*}": "npx prettier --write"
+    "*": "npx prettier --write"
   },
   "husky": {
     "hooks": {
