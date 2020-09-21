@@ -31,8 +31,6 @@
   let willGrow = false;
 
 
-
-
   function moveSnake() {
     snake = getNextSnake(snake, DIRECTION_VECTORS[headDirection], willGrow);
     willGrow = false;
