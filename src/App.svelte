@@ -195,10 +195,9 @@
   <div
     class="board"
     style="width: {BOARD_DIMENSIONS.x * CELL_SIZE}px; height: {BOARD_DIMENSIONS.y * CELL_SIZE}px">
-    {#each snake.slice(1) as bodyPart}
+    {#each snake as bodyPart}
       <div class="body-part" style={calculatePositionAsStyle(bodyPart)} />
     {/each}
-    <div class="body-part head" style={calculatePositionAsStyle(snake[0])} />
 
     <!--  We use two alternating apples in order to animate re-appearance on the board -->
     {#if score % 2}
