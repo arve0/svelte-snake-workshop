@@ -3,7 +3,6 @@
   import { fly, scale } from "svelte/transition";
   import cssVars from "svelte-css-vars";
 
-  import GameOverModal from "./GameOverModal.svelte";
   import {
     DIRECTION_VECTORS,
     getNewApplePosition,
@@ -239,7 +238,7 @@
   <div class="modal-container" in:fly={{ delay: 1300, y: -100 }}>
     <!-- This div, together with the class modal-container is required to center the content -->
     <div style="position: relative; left: -50%;">
-      <GameOverModal {score} />
+      <!-- TODO: Mount game over modal here -->
     </div>
   </div>
 {/if}
