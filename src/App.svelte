@@ -1,8 +1,6 @@
 <script>
   import cssVars from "svelte-css-vars";
 
-  import { getNewApplePosition } from "./utils";
-
   const TICK_TIME = 100;
   const BOARD_DIMENSIONS = { x: 20, y: 20 };
 
@@ -11,7 +9,7 @@
     { x: 4, y: 3 },
     { x: 4, y: 2 },
   ];
-  let apple = getNewApplePosition(BOARD_DIMENSIONS, snake);
+  let apple = { x: 8, y: 8 };
   let score = 0;
 
   const CELL_SIZE = 25;
