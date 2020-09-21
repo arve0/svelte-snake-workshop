@@ -8,8 +8,6 @@
     getNewDirectionFromEventKey,
     getNextSnake,
     isEqual,
-    isInsideBoard,
-    isSnakeEatingItself,
   } from "./utils";
 
   const TICK_TIME = 100;
@@ -21,7 +19,6 @@
     { x: 4, y: 2 },
   ];
   let apple = getNewApplePosition(BOARD_DIMENSIONS, initialSnake);
-  let gameOver = false;
   let headDirection = "SOUTH";
   let score = 0;
   let snake = initialSnake;
@@ -57,17 +54,6 @@
     stopTicking = () => clearInterval(id);
     return () => clearInterval(id);
   });
-
-  $: if (
-    !isInsideBoard(BOARD_DIMENSIONS, snake[0]) ||
-    isSnakeEatingItself(snake)
-  ) {
-    gameOver = true;
-  }
-
-  $: if (gameOver) {
-    stopTicking();
-  }
 
   const CELL_SIZE = 25;
 
