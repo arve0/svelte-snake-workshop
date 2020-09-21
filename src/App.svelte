@@ -1,6 +1,5 @@
 <script>
   import { onMount } from "svelte";
-  import { scale } from "svelte/transition";
   import cssVars from "svelte-css-vars";
 
   import {
@@ -185,8 +184,6 @@
   }
 </style>
 
-<svelte:options immutable={true} />
-
 <svelte:body on:keydown={handleKeydown} />
 
 <div use:cssVars={styleVars} class="main-content min-width">
@@ -199,12 +196,7 @@
       <div class="body-part" style={calculatePositionAsStyle(bodyPart)} />
     {/each}
 
-    <!--  We use two alternating apples in order to animate re-appearance on the board -->
-    {#if score % 2}
-      <div in:scale style={calculatePositionAsStyle(apple)} class="apple" />
-    {:else}
-      <div in:scale style={calculatePositionAsStyle(apple)} class="apple" />
-    {/if}
+    <div style={calculatePositionAsStyle(apple)} class="apple" />
   </div>
 
   <div class="signature">
