@@ -199,13 +199,6 @@
       <div class="body-part" style={calculatePositionAsStyle(bodyPart)} />
     {/each}
     <div class="body-part head" style={calculatePositionAsStyle(snake[0])} />
-    <div
-      class="body-part tail"
-      style={calculatePositionAsStyle(snake[snake.length - 1])} />
-    <!-- This extra tail is added to compensate for tail flickering in Chrome and Safari -->
-    <div
-      class="body-part tail"
-      style={calculatePositionAsStyle(snake[snake.length - 2])} />
 
     <!--  We use two alternating apples in order to animate re-appearance on the board -->
     {#if score % 2}

@@ -17,6 +17,14 @@ module.exports = {
         "import/no-mutable-exports": "off",
         "import/first": "off",
       },
+      settings: {
+        "svelte3/ignore-warnings": (o) => {
+          if (o.code === "css-unused-selector") {
+            return true;
+          }
+          return false;
+        },
+      },
     },
   ],
   rules: {
