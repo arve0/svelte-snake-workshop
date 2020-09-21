@@ -19,11 +19,9 @@
   ];
   let apple = getNewApplePosition(BOARD_DIMENSIONS, snake);
   let score = 0;
-  let willGrow = false;
 
   $: if (isEqual(snake[0], apple)) {
     score += 1;
-    willGrow = true;
     apple = getNewApplePosition(BOARD_DIMENSIONS, snake);
   }
 
@@ -33,8 +31,7 @@
       return;
     }
 
-    snake = getNextSnake(snake, DIRECTION_VECTORS[keyDirection], willGrow);
-    willGrow = false;
+    snake = getNextSnake(snake, DIRECTION_VECTORS[keyDirection]);
   }
 
   const CELL_SIZE = 25;
