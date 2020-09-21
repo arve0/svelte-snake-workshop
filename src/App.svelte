@@ -32,13 +32,6 @@
     willGrow = false;
   }
 
-  $: if (
-    !isInsideBoard(BOARD_DIMENSIONS, snake[0]) ||
-    isSnakeEatingItself(snake)
-  ) {
-    gameOver = true;
-  }
-
   $: if (isEqual(snake[0], apple)) {
     eatApple();
   }
@@ -64,6 +57,13 @@
     stopTicking = () => clearInterval(id);
     return () => clearInterval(id);
   });
+
+  $: if (
+    !isInsideBoard(BOARD_DIMENSIONS, snake[0]) ||
+    isSnakeEatingItself(snake)
+  ) {
+    gameOver = true;
+  }
 
   $: if (gameOver) {
     stopTicking();
