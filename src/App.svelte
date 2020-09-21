@@ -7,7 +7,6 @@
     getNewApplePosition,
     getNewDirectionFromEventKey,
     getNextSnake,
-    is180Turn,
     isEqual,
     isInsideBoard,
     isSnakeEatingItself,
@@ -56,9 +55,7 @@
       return;
     }
 
-    if (!is180Turn(snake, keyDirection)) {
-      headDirection = keyDirection;
-    }
+    headDirection = keyDirection;
   }
 
   let stopTicking = () => {};
