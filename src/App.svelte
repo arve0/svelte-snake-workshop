@@ -30,7 +30,9 @@
   let snake = initialSnake;
   let willGrow = false;
 
-  // Snake logic
+
+
+
   function moveSnake() {
     snake = getNextSnake(snake, DIRECTION_VECTORS[headDirection], willGrow);
     willGrow = false;
@@ -43,13 +45,8 @@
     gameOver = true;
   }
 
-  // Apple logic
   $: if (isEqual(snake[0], apple)) {
     eatApple();
-  }
-
-  $: if (gameOver) {
-    stopTicking();
   }
 
   function eatApple() {
@@ -58,7 +55,6 @@
     apple = getNewApplePosition(BOARD_DIMENSIONS, snake);
   }
 
-  // User interaction
   function handleKeydown(event) {
     const keyDirection = getNewDirectionFromEventKey(event.key);
     if (!keyDirection) {
@@ -70,7 +66,6 @@
     }
   }
 
-  // Starting and stopping gameplay
   let stopTicking = () => {};
   onMount(() => {
     const id = setInterval(moveSnake, TICK_TIME);
@@ -78,9 +73,12 @@
     return () => clearInterval(id);
   });
 
+  $: if (gameOver) {
+    stopTicking();
+  }
+
   const CELL_SIZE = 25;
 
-  // Styling
   function calculatePositionAsStyle(coordinate) {
     return `left: ${coordinate.x * CELL_SIZE}px; top: ${
       coordinate.y * CELL_SIZE
