@@ -6,7 +6,6 @@
     getNewApplePosition,
     getNewDirectionFromEventKey,
     getNextSnake,
-    isEqual,
   } from "./utils";
 
   const TICK_TIME = 100;
@@ -19,11 +18,6 @@
   ];
   let apple = getNewApplePosition(BOARD_DIMENSIONS, snake);
   let score = 0;
-
-  $: if (isEqual(snake[0], apple)) {
-    score += 1;
-    apple = getNewApplePosition(BOARD_DIMENSIONS, snake);
-  }
 
   function handleKeydown(event) {
     const keyDirection = getNewDirectionFromEventKey(event.key);
