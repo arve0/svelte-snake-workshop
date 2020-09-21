@@ -126,8 +126,6 @@
   }
 </style>
 
-<svelte:body on:keydown={console.log} />
-
 <div use:cssVars={styleVars} class="main-content min-width">
   <div class="score">{score}</div>
 
