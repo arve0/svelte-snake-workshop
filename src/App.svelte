@@ -205,13 +205,6 @@
     {:else}
       <div in:scale style={calculatePositionAsStyle(apple)} class="apple" />
     {/if}
-
-    {#if gameOver}
-      <div
-        in:scale={{ delay: 300 }}
-        style={calculatePositionAsStyle(snake[0])}
-        class="skull" />
-    {/if}
   </div>
 
   <div class="signature">
