@@ -1,12 +1,7 @@
 <script>
   import cssVars from "svelte-css-vars";
 
-  import {
-    add,
-    getNewApplePosition,
-    DIRECTION_VECTORS,
-    getNewDirectionFromEventKey,
-  } from "./utils";
+  import { getNewApplePosition } from "./utils";
 
   const TICK_TIME = 100;
   const BOARD_DIMENSIONS = { x: 20, y: 20 };
@@ -18,17 +13,6 @@
   ];
   let apple = getNewApplePosition(BOARD_DIMENSIONS, snake);
   let score = 0;
-
-  function handleKeydown(event) {
-    const keyDirection = getNewDirectionFromEventKey(event.key);
-    if (!keyDirection) {
-      return;
-    }
-
-    const headCoordinate = snake[0];
-    const nextHead = add(headCoordinate, DIRECTION_VECTORS[keyDirection]);
-    snake = [nextHead, ...snake.slice(0, snake.length - 1)];
-  }
 
   const CELL_SIZE = 25;
 
@@ -142,7 +126,7 @@
   }
 </style>
 
-<svelte:body on:keydown={handleKeydown} />
+<svelte:body on:keydown={console.log} />
 
 <div use:cssVars={styleVars} class="main-content min-width">
   <div class="score">{score}</div>
