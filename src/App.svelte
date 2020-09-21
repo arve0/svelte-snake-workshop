@@ -22,10 +22,6 @@
   let willGrow = false;
 
   $: if (isEqual(snake[0], apple)) {
-    eatApple();
-  }
-
-  function eatApple() {
     score += 1;
     willGrow = true;
     apple = getNewApplePosition(BOARD_DIMENSIONS, snake);
