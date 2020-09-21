@@ -10,6 +10,7 @@
     { x: 4, y: 3 },
     { x: 4, y: 2 },
   ];
+  // eslint-disable-next-line no-unused-vars
   let apple = { x: 8, y: 8 };
   let score = 0;
 
@@ -127,9 +128,7 @@
     style="width: {BOARD_DIMENSIONS.x * CELL_SIZE}px; height: {BOARD_DIMENSIONS.y * CELL_SIZE}px">
     <div class="body-part" />
 
-    <div
-      style="left: {apple.x * CELL_SIZE}px; top: {apple.y * CELL_SIZE}px"
-      class="apple" />
+    <div class="apple" />
   </div>
 
   <div class="signature">
