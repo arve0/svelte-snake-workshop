@@ -47,10 +47,8 @@
     headDirection = keyDirection;
   }
 
-  let stopTicking = () => {};
   onMount(() => {
     const id = setInterval(moveSnake, TICK_TIME);
-    stopTicking = () => clearInterval(id);
     return () => clearInterval(id);
   });
 
