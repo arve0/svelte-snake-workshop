@@ -1,5 +1,4 @@
 <script>
-  import { onMount } from "svelte";
   import cssVars from "svelte-css-vars";
 
   import {
@@ -19,14 +18,8 @@
     { x: 4, y: 2 },
   ];
   let apple = getNewApplePosition(BOARD_DIMENSIONS, snake);
-  let headDirection = "SOUTH";
   let score = 0;
   let willGrow = false;
-
-  function moveSnake() {
-    snake = getNextSnake(snake, DIRECTION_VECTORS[headDirection], willGrow);
-    willGrow = false;
-  }
 
   $: if (isEqual(snake[0], apple)) {
     eatApple();
@@ -44,13 +37,9 @@
       return;
     }
 
-    headDirection = keyDirection;
+    snake = getNextSnake(snake, DIRECTION_VECTORS[keyDirection], willGrow);
+    willGrow = false;
   }
-
-  onMount(() => {
-    const id = setInterval(moveSnake, TICK_TIME);
-    return () => clearInterval(id);
-  });
 
   const CELL_SIZE = 25;
 
