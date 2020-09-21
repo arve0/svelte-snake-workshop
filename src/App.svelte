@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import { fly, scale } from "svelte/transition";
+  import { scale } from "svelte/transition";
   import cssVars from "svelte-css-vars";
 
   import {
@@ -233,12 +233,3 @@
     </p>
   </div>
 </div>
-
-{#if gameOver}
-  <div class="modal-container" in:fly={{ delay: 1300, y: -100 }}>
-    <!-- This div, together with the class modal-container is required to center the content -->
-    <div style="position: relative; left: -50%;">
-      <!-- TODO: Mount game over modal here -->
-    </div>
-  </div>
-{/if}
