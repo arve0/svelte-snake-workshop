@@ -1,5 +1,5 @@
 <script>
-  import { createEventDispatcher, onMount } from "svelte";
+  import { onMount } from "svelte";
   import * as api from "./api";
   import NesContainer from "./NesContainer.svelte";
 
@@ -19,8 +19,6 @@
     e.preventDefault();
     postPromise = api.postScore({ name, score }).then(() => fetchScores());
   };
-
-  const dispatch = createEventDispatcher();
 </script>
 
 <style>
@@ -78,7 +76,4 @@
       {/await}
     {/if}
   </section>
-  <button on:click={() => dispatch('close_modal')} class="nes-btn">
-    Close
-  </button>
 </NesContainer>
