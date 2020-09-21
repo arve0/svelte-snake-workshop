@@ -2,10 +2,10 @@
   import cssVars from "svelte-css-vars";
 
   import {
-    DIRECTION_VECTORS,
+    add,
     getNewApplePosition,
+    DIRECTION_VECTORS,
     getNewDirectionFromEventKey,
-    getNextSnake,
   } from "./utils";
 
   const TICK_TIME = 100;
@@ -25,7 +25,9 @@
       return;
     }
 
-    snake = getNextSnake(snake, DIRECTION_VECTORS[keyDirection]);
+    const headCoordinate = snake[0];
+    const nextHead = add(headCoordinate, DIRECTION_VECTORS[keyDirection]);
+    snake = [nextHead, ...snake.slice(0, snake.length - 1)];
   }
 
   const CELL_SIZE = 25;
