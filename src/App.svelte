@@ -4,6 +4,7 @@
   const TICK_TIME = 100;
   const BOARD_DIMENSIONS = { x: 20, y: 20 };
 
+  // eslint-disable-next-line no-unused-vars
   let snake = [
     { x: 4, y: 4 },
     { x: 4, y: 3 },
@@ -124,11 +125,7 @@
   <div
     class="board"
     style="width: {BOARD_DIMENSIONS.x * CELL_SIZE}px; height: {BOARD_DIMENSIONS.y * CELL_SIZE}px">
-    {#each snake as bodyPart}
-      <div
-        class="body-part"
-        style="left: {bodyPart.x * CELL_SIZE}px; top: {bodyPart.y * CELL_SIZE}px" />
-    {/each}
+    <div class="body-part" />
 
     <div
       style="left: {apple.x * CELL_SIZE}px; top: {apple.y * CELL_SIZE}px"
