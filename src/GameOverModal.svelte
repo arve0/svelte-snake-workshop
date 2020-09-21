@@ -12,13 +12,6 @@
   };
 
   onMount(fetchScores);
-
-  let name = "";
-  let postPromise;
-  const postScore = (e) => {
-    e.preventDefault();
-    postPromise = api.postScore({ name, score }).then(() => fetchScores());
-  };
 </script>
 
 <style>
@@ -53,27 +46,5 @@
       <div class="nes-text is-error">Got error "{error.message}"</div>
       <button class="nes-btn" on:click={fetchScores}>Retry</button>
     {/await}
-  </section>
-  <section>
-    <h3>Submit score</h3>
-    {#if !postPromise}
-      <form on:submit={postScore}>
-        <div>
-          <label class="nes-field">
-            Name <input minlength="3" required type="text" class="nes-input" bind:value={name} />
-          </label>
-        </div>
-        <button type="submit" class="nes-btn is-primary">Submit</button>
-      </form>
-    {:else}
-      {#await postPromise}
-        <p>Submitting</p>
-      {:then success}
-        <div class="nes-text is-success">Successfully submitted!</div>
-      {:catch error}
-        <div class="nes-text is-error">Got error "{error.message}"</div>
-        <button class="nes-btn is-primary" on:click={postScore}>Retry</button>
-      {/await}
-    {/if}
   </section>
 </NesContainer>
