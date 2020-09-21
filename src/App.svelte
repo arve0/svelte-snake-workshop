@@ -14,12 +14,6 @@
 
   const CELL_SIZE = 25;
 
-  function calculatePositionAsStyle(coordinate) {
-    return `left: ${coordinate.x * CELL_SIZE}px; top: ${
-      coordinate.y * CELL_SIZE
-    }px`;
-  }
-
   $: styleVars = {
     "cell-size": `${CELL_SIZE}px`,
     "tick-time": `${TICK_TIME}ms`,
@@ -131,10 +125,14 @@
     class="board"
     style="width: {BOARD_DIMENSIONS.x * CELL_SIZE}px; height: {BOARD_DIMENSIONS.y * CELL_SIZE}px">
     {#each snake as bodyPart}
-      <div class="body-part" style={calculatePositionAsStyle(bodyPart)} />
+      <div
+        class="body-part"
+        style="left: {bodyPart.x * CELL_SIZE}px; top: {bodyPart.y * CELL_SIZE}px" />
     {/each}
 
-    <div style={calculatePositionAsStyle(apple)} class="apple" />
+    <div
+      style="left: {apple.x * CELL_SIZE}px; top: {apple.y * CELL_SIZE}px"
+      class="apple" />
   </div>
 
   <div class="signature">
