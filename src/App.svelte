@@ -13,15 +13,14 @@
   const TICK_TIME = 100;
   const BOARD_DIMENSIONS = { x: 20, y: 20 };
 
-  const initialSnake = [
+  let snake = [
     { x: 4, y: 4 },
     { x: 4, y: 3 },
     { x: 4, y: 2 },
   ];
-  let apple = getNewApplePosition(BOARD_DIMENSIONS, initialSnake);
+  let apple = getNewApplePosition(BOARD_DIMENSIONS, snake);
   let headDirection = "SOUTH";
   let score = 0;
-  let snake = initialSnake;
   let willGrow = false;
 
   function moveSnake() {
