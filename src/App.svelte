@@ -1,7 +1,5 @@
 <script>
   import { onMount } from "svelte";
-  import { fly, scale } from "svelte/transition";
-  import cssVars from "svelte-css-vars";
 
   import GameOverModal from "./GameOverModal.svelte";
   import {
@@ -42,10 +40,6 @@
   }
 
   $: if (isEqual(snake[0], apple)) {
-    eatApple();
-  }
-
-  function eatApple() {
     score += 1;
     willGrow = true;
     apple = getNewApplePosition(BOARD_DIMENSIONS, snake);
