@@ -16,6 +16,15 @@ module.exports = {
         "import/no-extraneous-dependencies": "off",
         "import/no-mutable-exports": "off",
         "import/first": "off",
+        "prefer-const": "off",
+      },
+      settings: {
+        "svelte3/ignore-warnings": (o) => {
+          if (o.code === "css-unused-selector") {
+            return true;
+          }
+          return false;
+        },
       },
       settings: {
         "svelte3/ignore-warnings": (o) => {
