@@ -1,5 +1,7 @@
 <script>
   import { onMount } from "svelte";
+  import { fly, scale } from "svelte/transition";
+  import cssVars from "svelte-css-vars";
 
   import GameOverModal from "./GameOverModal.svelte";
   import {
